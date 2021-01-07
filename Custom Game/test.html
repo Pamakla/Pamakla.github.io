@@ -1,0 +1,184 @@
+<html>
+	<head>
+		<title> Platform Game </title>
+			<script src="https://simplycodingcourses.com/files/simply.js"></script>
+			<script>
+			var level = [];
+			function start(){
+			sjs.open("target",600,600);
+
+			var background = new 
+				sjs.Image("Images/background_trees.png");
+				background.setSize(2000, 1000);
+			sjs.loadImageArray(localStorage.getItem('level'));
+
+			//Player propterties
+			var player = new sjs.Image("Images/R_idle.png");
+				player.type = "player";
+				player.setSize(65, 119);
+				player.setGravity(3);
+				player.bottom();
+				player.friction = .4;
+				player.noBounds = true;
+
+			sjs.scrollable(player,background);
+
+			//Player controls
+			sjs.keyDown(RIGHT_KEY, function(){
+				player.pushRight(2);
+				player.setImage("Images/R_walk.gif");
+			}); //end Right key
+
+			sjs.keyDown(LEFT_KEY, function(){
+				player.pushLeft(2);
+				player.setImage("Images/L_walk.gif");
+			}); //end Left key
+
+			//Jumping
+			var canJump = true;
+			sjs.keyDown(UP_KEY, function(){
+				if(canJump == true){
+					canJump = false;
+					player.pushUp(50);
+					player.setImage("Images/jump.png");
+				} //end canJump if statement
+			}); //end keyDown function
+
+			window.addEventListener("keyup", function(e){
+				if(e.keyCode == RIGHT_KEY){
+					player.setImage("Images/R_idle.png");
+				} else if (e.keyCode == LEFT_KEY){
+					player.setImage("Images/L_idle.png");
+				}//end if statement
+			});//end EventListener function
+
+			sjs.keyDown(DOWN_KEY, function(){
+				if(canShoot==true){
+					canShoot = false;
+					var note = new sjs.Image("Images/rednote.gif");
+					note.type = "note";
+					note.setSize(28,28);
+					note.friction = 0;
+					note.noBounds = true;
+					if(r_facing == true){
+						note.moveTo(player.getX()+44,player.getY()+7);
+						note.pushRight(25.5);
+					} else {
+						note.moveTo(player.getX()+-60,player.getY()+7);
+						note.pushLeft(25.5);
+					}
+					setTimeout(function(){
+					canShoot = true;
+					},1500);
+				}//end canShoot if statement
+			})//end keyDown function DOWN_KEY
+
+			//onHit functions
+			var canShoot = false;
+
+			sjs.onHit("player","platform",function(x,y){
+				sjs.stoppedBy(x,y);
+				if(canJump == false && x.y < y.y-85){
+					canJump = true;
+					r_track = 0;
+					l_track = 0;
+				}
+			});
+
+			sjs.onHit("player","hill",function(x,y){
+				sjs.stoppedBy(x,y);
+				if(canJump == false && x.y < y.y-85){
+					canJump = true;
+					r_track = 0;
+					l_track = 0;
+				}
+			});	
+
+			sjs.onHit("player", "enemy", function(x,y){
+				x.destroy();
+				window.location = "gameover.html";
+			});
+
+			sjs.onHit("note", "enemy", function(x,y){
+				x.destroy();
+				y.setHFlipImages("Images/enemy_right.gif","Images/enemy_left.gif");
+			})
+
+			sjs.onHit("note", ["platform", "jump_pad", "powerUp", "score", "flag"], function(x,y){
+				sjs.bounceOff(x,y);
+			});
+
+			sjs.onHit("note", ["right_screen", "left_screen"], function(x,y){
+				x.destroy();
+			});
+
+			sjs.onHit("enemy", "bottom_screen", function(x,y){
+				sjs.stoppedBy(x,y);
+			});
+
+			sjs.onHit("enemy", ["left_screen", "right_screen"], function(x,y){
+				sjs.bounceOff(x,y);
+			});
+
+			sjs.onHit("enemy", "platform", function(x,y){
+				if(x.isAboveOf(y) == true){
+					sjs.stoppedBy(x,y);
+				} else {
+					sjs.bounceOff(x,y);
+				}
+			});
+
+			sjs.onHit("enemy", "hill", function(x,y){
+				if(x.isAboveOf(y) == true){
+					sjs.stoppedBy(x,y);
+				} else {
+					sjs.bounceOff(x,y);
+				}
+			});			
+
+			var flagOn = true;
+			sjs.onHit("player", "flag", function(x,y){
+				if(flagOn==true){
+					flagOn==false;
+					setTimeout(function(){
+						y.setImage("Images/flag_none.png");
+					},800 );
+					setTimeout(function(){
+						y.setImage("Images/flag_win.png");
+					},1600 );
+					setTimeout(function(){
+						window.location = "test.html";
+					},3000 );
+				}//end if statement
+			})
+
+
+			sjs.onHit("player", "powerUp", function(x,y){
+				canShoot= true;
+				y.destroy();
+			})
+
+			sjs.onHit("player", "bottom_screen", function(x,y){
+				sjs.stoppedBy(x,y);
+				if(canJump == false){
+					canJump = true;
+					r_track = 0;
+					l_track = 0;
+				}
+			});
+
+			sjs.onHit("player", ["right_screen", "left_screen", "top_screen"], function (x,y){
+				sjs.stoppedBy(x,y);
+			})
+
+			} //end start
+
+			</script>
+	</head>
+
+	<body onload="start()">
+		<h1> Platform Game </h1>
+
+		<div id="target" style="margin:auto;background:grey;"></div>
+	</body>
+</html>

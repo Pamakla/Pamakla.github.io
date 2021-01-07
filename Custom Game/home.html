@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Start Screen </title>
+		<script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+		<script>
+			function start(){
+			sjs.open();
+
+			var background = new 
+				sjs.Image("Images/background_trees.png");
+				background.setSize(600, 600);
+
+			var start_txt = new sjs.Text("Musical Platforms", 36, "white");
+				start_txt.center().offset(3, -158);		
+
+			var start_txt = new sjs.Text("Musical Platforms", 36, "purple");
+				start_txt.center().offset(0, -160);	
+
+			var beginBtn = new sjs.Button("Begin the Adventure", function(){
+				window.location = "level1.html";
+			});
+				beginBtn.center().offset(0, -80);
+
+			var describe_txt = new sjs.Text("Someone is taking all of the music and color from the world! You have been chosen bring back the fun. Once collecting your instrument you will be able to bring joy back to those who have lost it. Good Luck!", 18, "white");
+				describe_txt.center().offset(10, -10);
+
+			var describe_txt = new sjs.Text("Be careful! The people who you bring back will take a moment to register their surroundings before returning home.", 18, "white");
+				describe_txt.center().offset(10, 70);
+
+			var me_txt = new sjs.Text("Created by Payton Klaer", 20, "purple");
+				me_txt.center().offset(0, 135);
+
+			var levelBtn = new sjs.Button("Level Select", function(){
+				window.location="levelselect.html";
+			});
+				levelBtn.offset(30, 360);
+
+			var controlsBtn = new sjs.Button("Controls", function(){
+				window.location="controls.html";
+			});
+				controlsBtn.offset(200,360);
+
+			var customBtn = new sjs.Button("Create a Level", function(){
+				window.location="customselect.html";
+			});
+				customBtn.offset(320,360);
+
+
+			}
+		</script>
+	</head>
+
+	<body onload="start()">
+		<h1> Start Screen </h1>
+
+		<div id="target" style="margin:auto;background:grey;"></div>
+	</body>
+</html>

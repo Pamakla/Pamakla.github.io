@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Level Select </title>
+		<script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+		<script>
+			function start(){
+			sjs.open();
+
+			var background = new 
+				sjs.Image("Images/background_town.png");
+				background.setSize(600, 600);
+
+			var start_txt = new sjs.Text("Level Select", 40, "purple");
+				start_txt.center().offset(0, -100);
+
+			var oneBtn = new sjs.Button("Level 1", function(){
+				window.location = "level1.html";
+			});
+				oneBtn.center().offset(0, -30);
+
+			var twoBtn = new sjs.Button("Level 2", function(){
+				window.location="level2.html";
+			});
+				twoBtn.center().offset(0,30);
+
+			var backBtn = new sjs.Button("Back", function(){
+				window.location="home.html";
+			});
+				backBtn.offset(10,360);
+
+			}
+		</script>
+	</head>
+
+	<body onload="start()">
+		<h1> Level Select </h1>
+
+		<div id="target" style="margin:auto;background:grey;"></div>
+	</body>
+</html>

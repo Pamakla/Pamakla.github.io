@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Controls </title>
+		<script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+		<script>
+			function start(){
+			sjs.open();
+
+			var background = new 
+				sjs.Image("Images/background_town.png");
+				background.setSize(600, 600);
+
+			var walk_txt = new sjs.Text("Use the LEFT and RIGHT keys to move across the platforms.", 18, "purple");
+				walk_txt.center().offset(10, -120);
+
+			var jump_txt = new sjs.Text("Use the UP key to jump to scale your way through the world.", 18, "purple");
+				jump_txt.center().offset(10, -60);
+
+			var shoot_txt = new sjs.Text("Use the DOWN key to shoot notes at 	your enemies after you collect your instrument to bring joy back to them.", 18, "purple");
+				shoot_txt.center().offset(20, 0);
+
+			var backBtn = new sjs.Button("Back", function(){
+				window.location="home.html";
+			});
+				backBtn.offset(10,360);
+
+			}
+		</script>
+	</head>
+
+	<body onload="start()">
+		<h1> Controls </h1>
+
+		<div id="target" style="margin:auto;background:grey;"></div>
+	</body>
+</html>
