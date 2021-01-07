@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> You win! </title>
+		<script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+		<script>
+			function start(){
+			sjs.open();
+
+			var background = new 
+				sjs.Image("Images/background_trees.png");
+				background.setSize(600, 600);
+
+			var win_txt = new sjs.Text("Congratulations!", 36, "white");
+				win_txt.center().offset(0, -50);
+
+			var end_txt = new sjs.Text("You have brought color and music back to those who lost it. Good job!", 20, "white");
+				end_txt.center().offset(10, 50);
+
+			var restartBtn = new sjs.Button("Play again?", function(){
+				window.location = "home.html";
+			});
+				restartBtn.center(0,-100);
+
+
+			}
+		</script>
+	</head>
+
+	<body onload="start()">
+		<h1> You win! </h1>
+
+		<div id="target" style="margin:auto;background:grey;"></div>
+	</body>
+</html>

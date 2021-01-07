@@ -1,0 +1,189 @@
+<html>
+	<head>
+		<title>Level 1</title>
+			<script src="https://simplycodingcourses.com/files/simply.js"></script>
+			<script>
+			var level = [];
+			function start(){
+			sjs.open("target",600,600);
+
+			var background = new 
+				sjs.Image("Images/background_trees.png");
+				background.setSize(2000, 1000);
+
+			sjs.loadImageArray('[{"width":150,"height":30,"x":0,"y":558,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":150,"height":30,"x":88,"y":558,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":30,"height":30,"x":195,"y":523,"sx":0,"sy":0,"topSpeed":10,"src":"Images/instrument.gif","alt":"add text","type":"instrument","friction":0.05,"classType":"Image"},{"width":150,"height":30,"x":249,"y":645,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":150,"height":30,"x":433.00000000000006,"y":755,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":150,"height":30,"x":711.9253615400012,"y":934,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":150,"height":30,"x":955.9005703846514,"y":828,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":150,"height":30,"x":1068.3973967056281,"y":828,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":150,"height":30,"x":1175.8974057328132,"y":829,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":150,"height":30,"x":1291.876832934164,"y":829,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":22,"height":10,"x":1412.876832934164,"y":822,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Hill.png","alt":"add text","type":"hill","friction":0.05,"classType":"Image"},{"width":22,"height":10,"x":1086.376832934164,"y":819,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Hill.png","alt":"add text","type":"hill","friction":0.05,"classType":"Image"},{"width":65,"height":119,"x":1341.876832934164,"y":710,"sx":-1.5,"sy":1,"ay":1,"topSpeed":10,"src":"Images/enemy_left.gif","alt":"add text","type":"enemy","facingLeft":true,"left_img":"Images/enemy_left.gif","right_img":"Images/enemy_right.gif","friction":0,"classType":"Image","noBounds":true},{"width":150,"height":30,"x":1466.872928023453,"y":713,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":150,"height":30,"x":1232.848049515702,"y":591,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":150,"height":30,"x":991.8729293223059,"y":548,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":150,"height":30,"x":593.873077391308,"y":487,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":150,"height":30,"x":809.3729295102876,"y":486,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":150,"height":30,"x":699.3729295102876,"y":486,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":22,"height":10,"x":588.8733632207554,"y":482,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Hill.png","alt":"add text","type":"hill","friction":0.05,"classType":"Image"},{"width":22,"height":10,"x":922.0011715263242,"y":478,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Hill.png","alt":"add text","type":"hill","friction":0.05,"classType":"Image"},{"width":65,"height":119,"x":746.8729295102876,"y":367,"sx":1.5,"sy":0,"ay":1,"topSpeed":10,"src":"Images/enemy_right.gif","alt":"add text","type":"enemy","facingLeft":false,"left_img":"Images/enemy_left.gif","right_img":"Images/enemy_right.gif","friction":0,"classType":"Image","noBounds":true},{"width":150,"height":30,"x":967.9004207292298,"y":258,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":150,"height":30,"x":677.9013016163394,"y":336,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":150,"height":30,"x":844.9408164757402,"y":258,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":150,"height":30,"x":396.4013016163394,"y":437,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":22,"height":10,"x":866.3101253589336,"y":250,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Hill.png","alt":"add text","type":"hill","friction":0.05,"classType":"Image"},{"width":22,"height":10,"x":1083.9013016163394,"y":251,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Hill.png","alt":"add text","type":"hill","friction":0.05,"classType":"Image"},{"width":150,"height":30,"x":1229.3491931889755,"y":209,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":40,"height":80,"x":1307.3491931889755,"y":129,"sx":0,"sy":0,"topSpeed":10,"src":"Images/flag_bad.png","alt":"add text","type":"flag","friction":0.05,"classType":"Image"},{"width":65,"height":119,"x":940.4004207292298,"y":139,"sx":1.5,"sy":1,"ay":1,"topSpeed":10,"src":"Images/enemy_right.gif","alt":"add text","type":"enemy","facingLeft":false,"left_img":"Images/enemy_left.gif","right_img":"Images/enemy_right.gif","friction":0,"classType":"Image","noBounds":true}]');
+
+			var player = new sjs.Image("Images/R_idle.png");
+				player.type = "player";
+				player.setSize(65, 119);
+				player.setGravity(4);
+				player.bottom();
+				player.friction = .4;
+				player.noBounds = true;
+
+			sjs.scrollable(player,background);
+
+			var r_facing = true;
+
+				//Player controls
+			sjs.keyDown(RIGHT_KEY, function(){
+				r_facing = true;
+				player.pushRight(2);
+				player.setImage("Images/R_walk.gif");
+			}); //end Right key
+
+			sjs.keyDown(LEFT_KEY, function(){
+				r_facing = false;
+				player.pushLeft(2);
+				player.setImage("Images/L_walk.gif");
+			}); //end Left key
+
+			//Jumping
+			var canJump = true;
+			sjs.keyDown(UP_KEY, function(){
+				if(canJump == true){
+					canJump = false;
+					player.pushUp(50);
+					player.setImage("Images/jump.png");
+				} //end canJump if statement
+			}); //end keyDown function
+
+			window.addEventListener("keyup", function(e){
+				if(e.keyCode == RIGHT_KEY){
+					player.setImage("Images/R_idle.png");
+				} else if (e.keyCode == LEFT_KEY){
+					player.setImage("Images/L_idle.png");
+				}//end if statement
+			});//end EventListener function
+
+			sjs.keyDown(DOWN_KEY, function(){
+				if(canShoot==true){
+					canShoot = false;
+					var note = new sjs.Image("Images/rednote.png");
+					note.type = "note";
+					note.setSize(28,28);
+					note.friction = 0;
+					note.noBounds = true;
+					if(r_facing == true){
+						note.moveTo(player.getX()+14,player.getY()+2);
+						note.pushRight(15);
+					} else {
+						note.moveTo(player.getX()+-60,player.getY()+7);
+						note.pushLeft(15);
+					}
+					setTimeout(function(){
+					canShoot = true;
+					},1000);
+				}//end canShoot if statement
+			})//end keyDown function DOWN_KEY
+
+			//onHits
+			sjs.onHit("player","platform",function(x,y){
+				sjs.stoppedBy(x,y);
+				if(canJump == false && x.y < y.y-85){
+					canJump = true;
+					r_track = 0;
+					l_track = 0;
+				}
+			});
+
+			sjs.onHit("player","hill",function(x,y){
+				sjs.stoppedBy(x,y);
+				if(canJump == false && x.y < y.y-85){
+					canJump = true;
+					r_track = 0;
+					l_track = 0;
+				}
+			});		
+
+			sjs.onHit("player", "enemy", function(x,y){
+				x.destroy();
+				window.location = "gameover.html";
+			}); 
+
+			sjs.onHit("note", "enemy", function(x,y){
+				x.destroy();
+				y.setHFlipImages("Images/enemy_good_left.gif","Images/enemy_good_right.gif");
+				setTimeout(function(){
+					y.destroy();
+				},1000);
+			});
+
+			sjs.onHit("note", ["platform", "jump_pad", "powerUp", "score", "flag"], function(x,y){
+				sjs.bounceOff(x,y);
+			});
+
+			sjs.onHit("note", ["right_screen", "left_screen"], function(x,y){
+				x.destroy();
+			});
+
+			sjs.onHit("enemy", "bottom_screen", function(x,y){
+				sjs.stoppedBy(x,y);
+			});
+
+			sjs.onHit("enemy", ["left_screen", "right_screen"], function(x,y){
+				sjs.bounceOff(x,y);
+			});
+
+			sjs.onHit("enemy", "platform", function(x,y){
+				if(x.isAboveOf(y) == true){
+					sjs.stoppedBy(x,y);
+				} else {
+					sjs.bounceOff(x,y);
+				}
+			});
+
+			sjs.onHit("enemy", "hill", function(x,y){
+				if(x.isAboveOf(y) == true){
+					sjs.stoppedBy(x,y);
+				} else {
+					sjs.bounceOff(x,y);
+				}
+			});
+
+			var flagOn = true;
+			sjs.onHit("player", "flag", function(x,y){
+				if(flagOn==true){
+					flagOn==false;
+					setTimeout(function(){
+						y.setImage("Images/flag_bad.png");
+					},800 );
+					setTimeout(function(){
+						y.setImage("Images/flag_good.png");
+					},600 );
+					setTimeout(function(){
+						window.location = "level2.html";
+					},3000 );
+				}//end if statement
+			})
+
+			var canShoot = false;
+			sjs.onHit("player", "instrument", function(x,y){
+				canShoot= true;
+				y.destroy();
+			})
+
+			sjs.onHit("player", "bottom_screen", function(x,y){
+				sjs.stoppedBy(x,y);
+				if(canJump == false){
+					canJump = true;
+					r_track = 0;
+					l_track = 0;
+				}
+			});
+
+			sjs.onHit("player", ["right_screen", "left_screen", "top_screen"], function (x,y){
+				sjs.stoppedBy(x,y);
+			})
+
+			} //end start
+
+			</script>
+	</head>
+
+	<body onload="start()">
+		<h1> Platform Game </h1>
+
+		<div id="target" style="margin:auto;background:grey;"></div>
+	</body>
+</html>
